@@ -4,6 +4,8 @@ This is an illustration of how symmetric deletion can be used to implement a sim
 
 Note that this implementation does not produce identical results to the original, as it doesn't find all cases where distance = 2, and sometimes selects a match where distance is 2 but a match with distance 1 exists.
 
+Link to [big.txt](https://norvig.com/big.txt).
+
 ## Examples
 
 ### Insert
