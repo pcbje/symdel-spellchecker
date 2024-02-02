@@ -11,6 +11,7 @@ def deletes(word):
 
 WORDS = Counter(words(open('big.txt').read()))
 
+"Generate permutations for dictionary"
 PERMUTATIONS = reduce(lambda map, word: [map[P].append(word) for P in [word] + deletes(word)] and False or map, 
                       WORDS, defaultdict(list))
 
