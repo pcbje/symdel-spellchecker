@@ -11,7 +11,7 @@ def deletes(word):
 
 WORDS = Counter(words(open('big.txt').read()))
 
-"Generate permutations for dictionary"
+"Generate permutations for all `words`"
 PERMS = reduce(lambda map, w: [map[P].append(w) for P in [w] + deletes(w)] and False or map, 
                WORDS, defaultdict(list))
 
@@ -28,5 +28,5 @@ def candidates(word):
     return known([word]) or known(deletes(word)) or [word]
 
 def known(words): 
-    "The subset of `words` that appear in the dictionary of PERMUTATIONS."    
+    "The subset of `words` that appear in the dictionary of PERMS."    
     return reduce(list.__add__, [PERMS[w] for w in words], [])
