@@ -12,8 +12,8 @@ def deletes(word):
 WORDS = Counter(words(open('big.txt').read()))
 
 "Generate permutations for dictionary"
-PERMUTATIONS = reduce(lambda map, word: [map[P].append(word) for P in [word] + deletes(word)] and False or map, 
-                      WORDS, defaultdict(list))
+PERMS = reduce(lambda map, w: [map[P].append(w) for P in [w] + deletes(w)] and False or map, 
+               WORDS, defaultdict(list))
 
 def P(word, N=sum(WORDS.values())): 
     "Probability of `word`."
@@ -29,4 +29,4 @@ def candidates(word):
 
 def known(words): 
     "The subset of `words` that appear in the dictionary of PERMUTATIONS."    
-    return reduce(list.__add__, [PERMUTATIONS[w] for w in words], [])
+    return reduce(list.__add__, [PERMS[w] for w in words], [])
